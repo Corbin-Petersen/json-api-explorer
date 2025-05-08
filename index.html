@@ -3,35 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>API Interaction Project</title>
 
 </head>
 <body>
-    <h1>JSON API Explorer</h1>
+    <header>
+        <h1>JSON API Explorer</h1>
+    </header>
+    <main>
+        <section class="make-post">
+            <h2>Create New Post</h2>
+            <form id="postForm">
+                <div>
+                    <label for="titleInput" class="new-post-label">Title<br></label>
+                    <input type="text" id="titleInput" name="title" required>
+                </div>
+                <div>
+                    <label for="bodyInput" class="new-post-label">Body<br></label>
+                    <textarea id="bodyInput" name="body" rows="4" required></textarea>
+                </div>
+                <button type="submit">Submit Post</button>
+            </form>
+            <div id="formError"></div>
+            <div id="formSuccess"></div>
+        </section>
     
-    <section>
-        <h2>Create New Post</h2>
-        <form id="postForm">
-            <div>
-                <label for="titleInput">Title:</label>
-                <input type="text" id="titleInput" name="title" required>
+        <section class="show-posts">
+            <h2>Posts</h2>
+            <button id="fetchButton">Fetch Posts</button>
+            <div id="error"></div>
+            <div id="postList">
+                <div id="loadingMessage">
+                    Loading posts...
+                    <div class="spinner"></div>
+                </div>    
             </div>
-            <div>
-                <label for="bodyInput">Body:</label>
-                <textarea id="bodyInput" name="body" rows="4" required></textarea>
-            </div>
-            <button type="submit">Submit Post</button>
-        </form>
-        <div id="formError"></div>
-        <div id="formSuccess"></div>
-    </section>
-
-    <section>
-        <h2>Posts</h2>
-        <button id="fetchButton">Fetch Posts</button>
-        <div id="error"></div>
-        <div id="postList"></div>
-    </section>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
