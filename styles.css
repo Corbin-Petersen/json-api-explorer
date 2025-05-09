@@ -59,6 +59,14 @@ article {
   padding: 20px;
   margin: 20px;
 }
+.post-title {
+  text-transform: uppercase;
+  color: rgb(54, 54, 54);
+  letter-spacing: 1px;
+}
+/* .post-body {
+  font-weight: 100;
+} */
 
 /* Katherine's code */
 .spinner {

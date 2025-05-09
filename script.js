@@ -37,18 +37,27 @@ function renderPosts(posts) {
     });
 }
 
-fetchBtn.addEventListener("click", () => {
-    fetch("https://jsonplaceholder.typicode.com/posts?_limit=5")
-        .then((response) => {
-            let responseData = response.json();
-            console.log(responseData);
-            // data is array of objects with userID, id, title, body
-            return responseData;
-        }).then((data) => {
-            renderPosts(data);
-    });
+// BUILD ASYNC FETCH FUNCTION
+async function getThePost () {
+    let response = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5");
+    let data = await response.json();
 
-});
+    renderPosts(data);
+}
+
+fetchBtn.addEventListener("click", getThePost);
+
+// fetchBtn.addEventListener("click", () => {
+//     fetch("https://jsonplaceholder.typicode.com/posts?_limit=5")
+//         .then((response) => {
+//             let responseData = response.json();
+//             console.log(responseData);
+//             // data is array of objects with userID, id, title, body
+//             return responseData;
+//         }).then((data) => {
+//             renderPosts(data);
+//     });
+// });
 
 postForm.addEventListener("submit", (event) => {
     event.preventDefault(); 
