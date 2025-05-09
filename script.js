@@ -52,9 +52,11 @@ fetchBtn.addEventListener("click", () => {
 
 postForm.addEventListener("submit", (event) => {
     event.preventDefault(); 
-
-    const title = document.getElementById("titleInput").value;
-    const body = document.getElementById("bodyInput").value;
+    const titleElement = document.getElementById("titleInput");
+    const bodyElement = document.getElementById("bodyInput");
+    const title = titleElement.value;
+    const body = bodyElement.value;
+    console.log(body);
 
     fetch("https://jsonplaceholder.typicode.com/posts", {
         method: "POST",
@@ -70,6 +72,10 @@ postForm.addEventListener("submit", (event) => {
         } else {
             renderPosts([newPost]); 
         }
+        // zero out input fields after posting.
+        titleElement.value = "";
+        bodyElement.value = "";
     }).catch((error) => console.error("Error submitting post:", error));
+
 
 });
